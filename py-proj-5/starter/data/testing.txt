@@ -1,0 +1,34 @@
+$ source data/model.sh 
+$ python3 -i model.py
+
+
+#adding test user
+>>> with app.app_context():
+...    test_user = User(email='test@test.test', password='test')
+...    db.session.add(test_user)
+...    db.session.commit()
+
+#adding test movie
+>>> with app.app_context():
+...    from datetime import datetime
+>>> with app.app_context():
+...    mov = Movie(title='Test', overview='This is a Test', release_date=datetime.now(), poster_path='blah')
+...    db.session.add(mov)
+...    db.session.commit()
+
+#return all movies in db
+>>> with app.app_context():
+...    movies = Movie.query.all()
+...    movies
+
+#create test rating 
+>>> with app.app_context():
+...  rat = Rating(score=5, movie=movies[0])
+...  test_user.ratings.append(rat)
+...  db.session.commit()
+
+#get all ratings
+>>>with app.app_context():
+...     ratings = Rating.query.all()
+...     print(ratings[0].movie.title)
+...     print(ratings[0].user.email)

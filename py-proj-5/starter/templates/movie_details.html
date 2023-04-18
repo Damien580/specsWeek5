@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ movie.title }} - Details{% endblock %}
+
+{% block body %}
+<nav>
+    <a href="/">Home</a>
+    <a href="/movies">Movies</a>
+    <a href="/users">Users</a>
+</nav>
+<h1>{{ movie.title }}</h1>
+
+<p>
+  {{ movie.overview }}
+</p>
+
+<img src="{{ movie.poster_path }}">
+{% endblock %}

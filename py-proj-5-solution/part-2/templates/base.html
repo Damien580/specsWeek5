@@ -7,14 +7,9 @@
       {% block title %}{% endblock %}
     </title>
 
-    {% block head %}
-   
-    {% endblock %}
+    {% block head %}{% endblock %}
   </head>
   <body>
-    {% for msg in get_flashed_messages() %} <!--loops over messages created by func-->
-    <p class="flash-msg">{{ msg }}</p> <!--displays selected message-->
-    {% endfor %}
     {% block body %}{% endblock %}
 
     {% block after_body %}{% endblock %}

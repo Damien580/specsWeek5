@@ -1,14 +1,18 @@
 from model import db, User, Movie, Rating, connect_to_db
 
 def create_user(email,password):
-    new_user = User(email=email, password=password)
-    return new_user
+    user = User(email=email, password=password)
+    return user
 
 def get_users():
     return User.query.all()
 
 def get_user_by_id(user_id):
     return User.query.get(user_id)
+
+def get_user_by_email(email):
+    return User.query.filter_by(email = email).first()
+
 
 def create_movie(title, overview, release_date, poster_path):
     new_movie = Movie(title=title, overview=overview, release_date=release_date, poster_path=poster_path)

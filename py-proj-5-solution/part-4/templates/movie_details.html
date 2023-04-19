@@ -3,18 +3,13 @@
 {% block title %}{{ movie.title }} - Details{% endblock %}
 
 {% block body %}
-    <nav>
-      <a href="/">Home</a>
-      <a href="/movies">Movies</a>
-      <a href="/users">Users</a>
-    </nav>
-    <h1>{{ movie.title }}</h1>
+<h1>{{ movie.title }}</h1>
 
-    <p>
-      {{ movie.overview }}
-    </p>
+<p>
+  {{ movie.overview }}
+</p>
 
-    {% if session.get('user_email') %}
+{% if session.get('user_email') %}
 <h2>Rate this movie</h2>
 <form action="/movies/{{ movie.movie_id }}/ratings" method="POST">
   <p>
@@ -29,7 +24,6 @@
   <p><input type="submit"></p>
 </form>
 {% endif %}
-
 
 <img src="{{ movie.poster_path }}">
 {% endblock %}

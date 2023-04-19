@@ -67,6 +67,19 @@ def process_login():
         flash(f"Welcome back, {user.email}!")
     return redirect("/")
 
+@app.route("/logout") #endpoint for logout page
+def logout(): #function to log out
+    logged_in_email = session.get("user_email")
+    
+    if logged_in_email is ("user_email"):
+        del session["user_email"] #deletes session token for the user
+        flash("logged Out!")
+        return redirect("/")
+    else:
+        flash("You are not logged in!")
+        return redirect("/")
+
+
 @app.route("/movies/<movie_id>/ratings", methods=["POST"])
 def create_rating(movie_id):
     """Create a new rating for the movie."""

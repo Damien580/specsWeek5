@@ -71,13 +71,14 @@ def process_login():
 def logout(): #function to log out
     logged_in_email = session.get("user_email")
     
-    if logged_in_email == ("user_email"):
+    if logged_in_email is None:
+        flash("You are not logged in!")
+        return redirect("/")
+    else:
         del session["user_email"] #deletes session token for the user
         flash("logged Out!")
         return redirect("/")
-    else:
-        flash("You are not logged in!")
-        return redirect("/")
+        
 
 
 @app.route("/movies/<movie_id>/ratings", methods=["POST"])

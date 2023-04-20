@@ -1,0 +1,13 @@
+#navig{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    width: 100vw;
+    
+}
+
+#navli{
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}

@@ -71,7 +71,7 @@ def process_login():
 def logout(): #function to log out
     logged_in_email = session.get("user_email")
     
-    if logged_in_email is ("user_email"):
+    if logged_in_email == ("user_email"):
         del session["user_email"] #deletes session token for the user
         flash("logged Out!")
         return redirect("/")

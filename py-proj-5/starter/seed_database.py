@@ -14,7 +14,7 @@ os.system("createdb ratings") #creates new database
 
 model.connect_to_db(server.app) #connects to server
 
-with server.app.app_context():
+with server.app.app_context():#wraps ebverything below in the app.app_contect
 
     model.db.create_all() #creates all new empty tables
     
